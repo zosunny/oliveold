@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: oliveold
+  profiles:
+    active: private
+# DB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${mysql.url}
+    username: ${mysql.username}
+    password: ${mysql.password}
+#JPA
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+#        show_sql: true
+
+# logger를 통해 sql 확인
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace   # 쿼리 파라미터 확인
